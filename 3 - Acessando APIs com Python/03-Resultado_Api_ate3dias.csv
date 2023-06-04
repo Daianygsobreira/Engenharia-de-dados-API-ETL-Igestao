@@ -1,0 +1,8 @@
+id,id_api,datahora_partida,data_partida,time_casa,time_fora,gols_time_casa,gols_time_fora
+1,48ae859948ce5c99ba30611fcd0e0450,"2023-06-03 19:00:03",2023-06-03,Fortaleza,Bahia,0,0
+2,483f262369ee2bb0df1c993ed1cb054e,"2023-06-03 21:29:55",2023-06-03,"Atletico Paranaense",Botafogo,1,0
+3,aaf6ae410b4ed573ed13a3bee8f88156,"2023-06-03 21:30:09",2023-06-03,Cruzeiro,"Atletico Mineiro",0,1
+4,856c7f342b5618f14fb3f02b205f8dd7,"2023-06-03 21:33:47",2023-06-03,"América Mineiro",Corinthians,2,0
+5,0f06bc35bd841432e45c10219d9ad16b,"2023-06-04 00:01:38",2023-06-04,Santos,Internacional,1,1
+6,2b65218c5decd1c771ce35828be340f5,"2023-06-04 19:00:07",2023-06-04,Fluminense,Bragantino-SP,2,1
+7,f6d6641e83a6c2dfef3f01e312b257bd,"2023-06-04 19:01:01",2023-06-04,Gremio,"Sao Paulo",2,1
