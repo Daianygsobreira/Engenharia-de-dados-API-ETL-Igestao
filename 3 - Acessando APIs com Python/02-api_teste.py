@@ -5,8 +5,6 @@ from datetime import datetime
 # URL da API
 url = "https://odds.p.rapidapi.com/v4/sports/soccer_brazil_campeonato/scores?daysFrom=3"
 
-# parametros
-
 
 # Cabeçalhos da solicitação
 headers = {
@@ -39,13 +37,18 @@ if cnx.is_connected():
         for partida in data:
             # Verificar se a partida está completa (completed é igual a True)
             if partida.get("completed") and partida["completed"] == True:
-                id_api = partida ["id"]
                 datahora_partida = datetime.strptime(partida["commence_time"],"%Y-%m-%dT%H:%M:%SZ")
-                data_partida = partida["commence_time"].split("T")[0]
-                time_casa = partida["home_team"]
-                time_fora = partida["away_team"]
-                gols_time_casa = None
-                gols_time_fora = None
+                datahora_partida_str = partida["commence_time"]                
+                #data_partida = partida["commence_time"].split("T")[0]
+                
+                # Verificar se a partida ocorre em 2023
+                if datahora_partida.year == 2023:
+                    id_api = partida ["id"]
+                    data_partida = datahora_partida.date()
+                    time_casa = partida["home_team"]
+                    time_fora = partida["away_team"]
+                    gols_time_casa = None
+                    gols_time_fora = None
 
                 # Verificar se os dados de gols estão disponíveis
                 if partida["scores"]:
@@ -54,7 +57,7 @@ if cnx.is_connected():
                             gols_time_casa = int(score["score"])
                         else:
                             gols_time_fora = int(score["score"])
-
+       
                 # Inserir dados na tabela
                 insert_query = """
                 INSERT INTO partidas_brasileirao_serie_a_2023 (id_api,datahora_partida, data_partida, time_casa, time_fora, gols_time_casa, gols_time_fora)
@@ -75,3 +78,4 @@ if cnx.is_connected():
     cnx.close()
 else:
     print("Erro ao conectar ao banco de dados MySQL.")
+
